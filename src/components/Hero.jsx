@@ -1,6 +1,8 @@
+ import IdeaInput from "../components/IdeaInput";
+
 function Hero() {
   return (
-    <section className="flex flex-col items-center justify-center text-center min-h-[80vh] px-6 bg-slate-900">
+    <section className="flex flex-col items-center justify-center text-center min-h-screen px-6 bg-slate-900">
 
       <h1 className="text-6xl font-extrabold text-white mb-6">
         Build Better Projects
@@ -10,10 +12,7 @@ function Hero() {
         Transform your software idea into a complete development blueprint
         powered by AI.
       </p>
-
-      <button className="bg-cyan-500 hover:bg-cyan-600 px-8 py-4 rounded-xl text-white font-semibold transition">
-        Generate Blueprint
-      </button>
+     <IdeaInput />
 
     </section>
   );
