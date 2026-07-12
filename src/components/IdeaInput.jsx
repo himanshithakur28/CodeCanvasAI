@@ -2,6 +2,8 @@ import { useState } from "react";
 import { generateBlueprint } from "../services/ai";
 import BlueprintViewer from "./BlueprintViewer";
 import ArchitectureDiagram from "./ArchitectureDiagram";
+import LoadingScreen from "./LoadingScreen";
+
 
 function IdeaInput() {
     const [idea, setIdea] = useState("");
@@ -17,10 +19,15 @@ async function handleGenerate() {
 
   try {
     setLoading(true);
-
+    const startTime = Date.now();
     const result = await generateBlueprint(idea);
-    console.log(JSON.stringify(result, null, 2));
-    console.log(result.mermaid);
+    const elapsed = Date.now() - startTime;
+    const minimumLoadingTime = 1200;
+    if (elapsed < minimumLoadingTime) {
+  await new Promise((resolve) =>
+    setTimeout(resolve, minimumLoadingTime - elapsed)
+  );
+}
     setBlueprint(result);
 
   } catch (error) {
@@ -44,12 +51,23 @@ async function handleGenerate() {
 />
         <button
          onClick={handleGenerate}
-  className="mt-6 px-8 py-3 bg-cyan-500 hover:bg-cyan-600 hover:scale-105 text-white font-semibold rounded-xl transition-all duration-300 shadow-lg shadow-cyan-500/30"
+         disabled={loading}
+  className={`mt-6 px-8 py-3 rounded-xl text-white font-semibold transition-all duration-300 ${
+    loading
+      ? "bg-slate-600 cursor-not-allowed"
+      : "bg-cyan-500 hover:bg-cyan-600 hover:scale-105 shadow-lg shadow-cyan-500/30"
+  }`}
 >
-   {loading ? "Generating..." : "Generate Blueprint"}
-</button>
-<BlueprintViewer blueprint={blueprint} />
-<ArchitectureDiagram chart={blueprint?.mermaid} />
+  {loading ? "Generating..." : "Generate Blueprint"}
+  </button>
+{loading ? (
+  <LoadingScreen />
+) : (
+  <>
+    <BlueprintViewer blueprint={blueprint} />
+    <ArchitectureDiagram chart={blueprint?.mermaid} />
+  </>
+)}
         </div>
         
     );
