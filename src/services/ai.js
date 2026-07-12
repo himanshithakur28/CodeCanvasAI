@@ -7,30 +7,74 @@ const client = new OpenAI({
 });
 
 export async function generateBlueprint(idea) {
-  const prompt = `
+ const prompt = `
 You are a senior software architect.
 
-Generate a complete software blueprint for the following project.
+Generate a detailed software blueprint for this project.
 
 Project Idea:
 ${idea}
 
-Include the following sections:
+Return ONLY valid JSON.
 
-1. Project Overview
-2. Core Features
-3. Recommended Tech Stack
-4. Suggested Folder Structure
-5. Database Design (if required)
-6. Difficulty Level with explanation
-7. Estimated Development Time
-8. Recommended Team Size
-9. Development Roadmap
-10. Future Improvements
+Do not use markdown.
+Do not wrap with \`\`\`.
+Do not explain anything.
 
-Return everything in Markdown.
+Return exactly this structure:
+
+{
+  "overview": "",
+  "features": [
+    ""
+  ],
+  "techStack": {
+    "frontend": "",
+    "backend": "",
+    "database": "",
+    "authentication": "",
+    "deployment": ""
+  },
+  "folderStructure": [
+    ""
+  ],
+  "databaseDesign": [
+    ""
+  ],
+  "difficulty": {
+    "level": "",
+    "reason": ""
+  },
+  "estimatedTime": "",
+  "teamSize": "",
+  "roadmap": [
+    ""
+  ],
+  "futureImprovements": [
+  ""
+],
+
+"mermaid": ""
+}
+Also generate a Mermaid flowchart.
+
+The mermaid field must contain ONLY Mermaid syntax.
+
+Example:
+
+graph TD
+A[React Frontend]
+B[Node.js Backend]
+C[MongoDB]
+D[JWT Authentication]
+
+A --> B
+B --> C
+B --> D
+
+Do not wrap it inside markdown.
+Return only valid JSON.
 `;
-
   const response = await client.chat.completions.create({
     model: "llama-3.3-70b-versatile",
     messages: [
@@ -41,5 +85,5 @@ Return everything in Markdown.
     ],
   });
 
-  return response.choices[0].message.content;
+  return JSON.parse(response.choices[0].message.content);
 }

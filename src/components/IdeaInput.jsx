@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { generateBlueprint } from "../services/ai";
+import BlueprintViewer from "./BlueprintViewer";
+import ArchitectureDiagram from "./ArchitectureDiagram";
 
 function IdeaInput() {
     const [idea, setIdea] = useState("");
@@ -17,7 +19,8 @@ async function handleGenerate() {
     setLoading(true);
 
     const result = await generateBlueprint(idea);
-
+    console.log(JSON.stringify(result, null, 2));
+    console.log(result.mermaid);
     setBlueprint(result);
 
   } catch (error) {
@@ -45,15 +48,10 @@ async function handleGenerate() {
 >
    {loading ? "Generating..." : "Generate Blueprint"}
 </button>
-{blueprint && (
-     <div className="mt-8 w-full rounded-xl bg-slate-800 p-6 text-left text-white whitespace-pre-wrap">
-        {blueprint}
-      </div>
-    )}
-
+<BlueprintViewer blueprint={blueprint} />
+<ArchitectureDiagram chart={blueprint?.mermaid} />
         </div>
         
     );
   }
 export default IdeaInput;
-// commit now or not
