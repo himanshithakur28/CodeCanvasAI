@@ -1,6 +1,7 @@
 import { useState } from "react";
 import ReactMarkdown from "react-markdown";
 import jsPDF from "jspdf";
+import { generateReadme } from "../utils/readmeGenerator";
 
 
 function BlueprintViewer({ blueprint }) {
@@ -93,6 +94,25 @@ function BlueprintViewer({ blueprint }) {
 
   pdf.save("CodeCanvasAI-Blueprint.pdf");
 };
+const downloadReadme = () => {
+  const markdown = generateReadme(blueprint, idea);
+
+  const blob = new Blob([markdown], {
+    type: "text/markdown",
+  });
+
+  const url = URL.createObjectURL(blob);
+
+  const link = document.createElement("a");
+
+  link.href = url;
+
+  link.download = "README.md";
+
+  link.click();
+
+  URL.revokeObjectURL(url);
+};
 
   const [copied, setCopied] = useState(false);
   
@@ -108,7 +128,12 @@ function BlueprintViewer({ blueprint }) {
   >
     ⬇ Download PDF
   </button>
-
+<button
+  onClick={downloadReadme}
+  className="px-4 py-2 rounded-lg bg-indigo-500 hover:bg-indigo-600 text-white"
+>
+  📄 README
+</button>
   <button
     onClick={() => {
       navigator.clipboard.writeText(
