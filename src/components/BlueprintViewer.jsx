@@ -39,7 +39,7 @@ function BlueprintViewer({ blueprint }) {
 
   pdf.setFontSize(22);
   pdf.setFont("helvetica", "bold");
-  pdf.text("CodeCanvasAI Software Blueprint", 15, y);
+  pdf.text("Generated Software Blueprint", 15, y);
 
   y += 15;
 
@@ -113,6 +113,26 @@ const downloadReadme = () => {
 
   URL.revokeObjectURL(url);
 };
+const downloadJSON = () => {
+  const blob = new Blob(
+    [JSON.stringify(blueprint, null, 2)],
+    {
+      type: "application/json",
+    }
+  );
+
+  const url = URL.createObjectURL(blob);
+
+  const link = document.createElement("a");
+
+  link.href = url;
+
+  link.download = "blueprint.json";
+
+  link.click();
+
+  URL.revokeObjectURL(url);
+};
 
   const [copied, setCopied] = useState(false);
   
@@ -126,13 +146,19 @@ const downloadReadme = () => {
     onClick={downloadPDF}
     className="px-4 py-2 rounded-lg bg-emerald-500 hover:bg-emerald-600 text-white"
   >
-    ⬇ Download PDF
+     Download PDF
   </button>
 <button
   onClick={downloadReadme}
   className="px-4 py-2 rounded-lg bg-indigo-500 hover:bg-indigo-600 text-white"
 >
-  📄 README
+   README
+</button>
+<button
+  onClick={downloadJSON}
+  className="px-4 py-2 rounded-lg bg-amber-500 hover:bg-amber-600 text-white"
+>
+  JSON
 </button>
   <button
     onClick={() => {
@@ -148,7 +174,7 @@ const downloadReadme = () => {
     }}
     className="px-4 py-2 rounded-lg bg-cyan-500 hover:bg-cyan-600 text-white"
   >
-    {copied ? "✅ Copied!" : "📋 Copy"}
+    {copied ? " Copied!" : " Copy"}
   </button>
 
 </div>
