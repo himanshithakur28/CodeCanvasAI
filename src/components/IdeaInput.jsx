@@ -56,4 +56,3 @@ async function handleGenerate() {
     );
   }
 export default IdeaInput;
-// commit now or not
