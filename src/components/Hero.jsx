@@ -18,7 +18,10 @@ function Hero() {
   Transform your software idea into a complete development blueprint powered by AI.
   Get architecture, roadmap, folder structure, tech stack, and implementation guidance in seconds.
 </p>
-     <IdeaInput />
+
+     <div id="generator" className="w-full flex justify-center">
+  <IdeaInput />
+</div>
      </div>
 
     </section>

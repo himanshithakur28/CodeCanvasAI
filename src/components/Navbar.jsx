@@ -4,9 +4,17 @@ function Navbar(){
         <h1 className="text-2xl font-bold text-cyan-400">
             CodeCanvasAI
         </h1>
-          <button className="bg-cyan-500 hover:bg-cyan-600 text-white px-5 py-2 rounded-lg transition">
-        Get Started
-      </button>
+         <button
+  onClick={() =>
+    document.getElementById("generator")?.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    })
+  }
+  className="bg-cyan-500 hover:bg-cyan-600 text-white px-5 py-2 rounded-lg transition"
+>
+  Get Started
+</button>
 
    </nav>
     );
