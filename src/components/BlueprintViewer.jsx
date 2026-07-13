@@ -188,7 +188,7 @@ const downloadJSON = () => {
         <div className="bg-slate-800 rounded-xl p-6 border border-slate-700 transition-all duration-300 hover:border-cyan-400 hover:scale-[1.02] hover:shadow-lg hover:shadow-cyan-500/10">
 
           <h3 className="text-xl font-bold text-cyan-400 mb-3">
-            📘 Overview
+             Overview
           </h3>
 
          <p className="text-slate-300 leading-7">
@@ -201,7 +201,7 @@ const downloadJSON = () => {
         <div className="bg-slate-800 rounded-xl p-6 border border-slate-700 transition-all duration-300 hover:border-cyan-400 hover:scale-[1.02] hover:shadow-lg hover:shadow-cyan-500/10">
 
           <h3 className="text-xl font-bold text-cyan-400 mb-3">
-            🚀 Features
+             Features
           </h3>
 
           <ul className="space-y-3">
@@ -229,7 +229,7 @@ const downloadJSON = () => {
         <div className="bg-slate-800 rounded-xl p-6 border border-slate-700 transition-all duration-300 hover:border-cyan-400 hover:scale-[1.02] hover:shadow-lg hover:shadow-cyan-500/10">
 
           <h3 className="text-xl font-bold text-cyan-400 mb-3">
-            🛠 Tech Stack
+             Tech Stack
           </h3>
 
      <div className="space-y-4">
@@ -283,7 +283,7 @@ const downloadJSON = () => {
         <div className="bg-slate-800 rounded-xl p-6 border border-slate-700 transition-all duration-300 hover:border-cyan-400 hover:scale-[1.02] hover:shadow-lg hover:shadow-cyan-500/10">
 
           <h3 className="text-xl font-bold text-cyan-400 mb-3">
-            ⚡ Difficulty
+             Difficulty
           </h3>
 
          <span className="inline-block px-4 py-2 rounded-full bg-red-500/20 text-red-400 font-semibold">
@@ -302,7 +302,7 @@ const downloadJSON = () => {
 <div className="mt-10">
 
   <h3 className="text-2xl font-bold text-cyan-400 mb-6">
-    📅 Development Roadmap
+     Development Roadmap
   </h3>
 
   <div className="relative border-l-2 border-cyan-500 ml-4">
