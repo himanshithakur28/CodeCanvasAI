@@ -9,7 +9,7 @@ function IdeaInput() {
     const [idea, setIdea] = useState("");
     const [loading, setLoading] = useState(false);
      const [blueprint, setBlueprint] = useState("");
-     
+     const [error, setError] = useState("");
 
 async function handleGenerate() {
   if (!idea.trim()) {
@@ -18,6 +18,8 @@ async function handleGenerate() {
   }
 
   try {
+    setError("");
+    setBlueprint("");
     setLoading(true);
     const startTime = Date.now();
     const result = await generateBlueprint(idea);
@@ -31,9 +33,12 @@ async function handleGenerate() {
     setBlueprint(result);
 
   } catch (error) {
-    console.error(error);
-    alert("Something went wrong while generating the blueprint.");
-  } finally {
+  console.error(error);
+
+  setError(
+    error.message || "Something went wrong while generating the blueprint."
+  );
+} finally {
     setLoading(false);
   }
 }
@@ -60,6 +65,11 @@ async function handleGenerate() {
 >
   {loading ? "Generating..." : "Generate Blueprint"}
   </button>
+  {error && (
+  <div className="mt-5 w-full rounded-xl border border-red-500 bg-red-500/10 p-4">
+    <p className="text-red-300">{error}</p>
+  </div>
+)}
 {loading ? (
   <LoadingScreen />
 ) : (

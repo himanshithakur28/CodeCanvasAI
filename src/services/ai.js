@@ -85,5 +85,13 @@ Return only valid JSON.
     ],
   });
 
-  return JSON.parse(response.choices[0].message.content);
+  const content = response.choices[0].message.content;
+
+try {
+  return JSON.parse(content);
+} catch (error) {
+  console.error("Invalid AI response:", content);
+
+  throw new Error("The AI returned an invalid blueprint.");
+}
 }
