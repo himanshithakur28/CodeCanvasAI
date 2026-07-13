@@ -4,7 +4,7 @@ import jsPDF from "jspdf";
 import { generateReadme } from "../utils/readmeGenerator";
 
 
-function BlueprintViewer({ blueprint }) {
+function BlueprintViewer({ blueprint, projectName }) {
   if (!blueprint) return null;
   const downloadPDF = () => {
   if (!blueprint) return;
@@ -95,7 +95,7 @@ function BlueprintViewer({ blueprint }) {
   pdf.save("CodeCanvasAI-Blueprint.pdf");
 };
 const downloadReadme = () => {
-  const markdown = generateReadme(blueprint, idea);
+  const markdown = generateReadme(blueprint, "Generated Project");
 
   const blob = new Blob([markdown], {
     type: "text/markdown",

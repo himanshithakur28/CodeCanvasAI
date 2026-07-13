@@ -74,7 +74,10 @@ async function handleGenerate() {
   <LoadingScreen />
 ) : (
   <>
-    <BlueprintViewer blueprint={blueprint} />
+    <BlueprintViewer
+  blueprint={blueprint}
+  projectName={idea}
+/>
     <ArchitectureDiagram chart={blueprint?.mermaid} />
   </>
 )}
