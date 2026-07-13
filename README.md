@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="./screenshots/banner.png" alt="CodeCanvasAI Banner"/>
+</p>
+
 # CodeCanvasAI
 
 **Turn Ideas into Production-Ready Software Blueprints using AI.**
@@ -13,6 +17,29 @@ CodeCanvasAI is an AI-powered web application that transforms a simple software 
 https://github.com/himanshithakur28/CodeCanvasAI
 
 ---
+## 📸 Screenshots
+
+### 🏠 Landing Page & Blueprint Dashboard
+
+| Landing Page | Blueprint Dashboard |
+|---------------|---------------------|
+| ![Landing Page](./screenshots/landing-page.png) | ![Blueprint Dashboard](./screenshots/blueprint-dashboard.png) |
+
+---
+
+### 🗺️ Development Roadmap & Architecture Diagram
+
+| Development Roadmap | Architecture Diagram |
+|---------------------|----------------------|
+| ![Roadmap](./screenshots/roadmap.png) | ![Architecture Diagram](./screenshots/architecture.png) |
+
+---
+
+### ⚡ AI Loading Experience
+
+<p align="center">
+  <img src="./screenshots/loading-screen.png" alt="Loading Screen" width="700"/>
+</p>
 
 ## Features
 
