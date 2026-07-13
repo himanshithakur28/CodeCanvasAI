@@ -17,9 +17,9 @@ CodeCanvasAI is an AI-powered web application that transforms a simple software 
 https://github.com/himanshithakur28/CodeCanvasAI
 
 ---
-## 📸 Screenshots
+## Screenshots
 
-### 🏠 Landing Page & Blueprint Dashboard
+###  Landing Page & Blueprint Dashboard
 
 | Landing Page | Blueprint Dashboard |
 |---------------|---------------------|
@@ -27,7 +27,7 @@ https://github.com/himanshithakur28/CodeCanvasAI
 
 ---
 
-### 🗺️ Development Roadmap & Architecture Diagram
+###  Development Roadmap & Architecture Diagram
 
 | Development Roadmap | Architecture Diagram |
 |---------------------|----------------------|
@@ -35,7 +35,7 @@ https://github.com/himanshithakur28/CodeCanvasAI
 
 ---
 
-### ⚡ AI Loading Experience
+###  AI Loading Experience
 
 <p align="center">
   <img src="./screenshots/loading-screen.png" alt="Loading Screen" width="700"/>
