@@ -43,7 +43,7 @@ async function handleGenerate() {
   }
 }
     return (
-       <div className="w-full max-w-3xl mt-6 p-8 rounded-3xl bg-white/5 backdrop-blur-md border border-white/10 shadow-2xl flex flex-col items-center">
+       <div className="w-full max-w-3xl mt-6 p-8 rounded-3xl bg-white/5 backdrop-blur-sm border border-white/10 shadow-2xl flex flex-col items-center">
         <p className="text-slate-300 font-medium self-start mb-2">
   Describe your project idea
 </p>
